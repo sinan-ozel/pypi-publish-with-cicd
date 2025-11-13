@@ -6,10 +6,13 @@ automated unit testing,
 linting,
 and semver-compatible versioning.
 
+It also includes a .devcontainer to facilitate collaboration.
+
 # Usage
 
-Base a repo on this template.
+1. Base a repo on this template.
 
-Find all instances of <MODULE_NAME> and <ORGANIZATION> and replace.
+2. Find all instances of <MODULE_NAME> and <ORGANIZATION> in muiiltiple files and replace.
 
-Set up PyPI repo. # TODO: Add a link to a good set of instructions.
+3. Set up PyPI repo with the <MODULE_NAME>. Set up publisher as the github repo that you created in step 1. # TODO: Add a link to a good set of instructions.
+
