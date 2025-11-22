@@ -1,7 +1,7 @@
 name: CI/CD Pipeline
 
 env:
-  MODULE_NAME: redis_memory
+  MODULE_NAME: <MODULE_NAME>
 on:
   push:
     branches:
