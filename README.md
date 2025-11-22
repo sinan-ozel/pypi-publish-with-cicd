@@ -16,13 +16,13 @@ It also has `.vscode/tasks.json` prepared so that developers can run tests (even
 
 2. Find all instances of <MODULE_NAME> and <ORGANIZATION> in muiiltiple files and replace with your module. (Take care with `_` and `-`, use `-` in docker-compose.yaml, `_` in `pyproject.toml`)
 
-3. Create the folders `src/` and `src/<MODULE_NAME>`.
+3. Create the folders `src/` and `src/<MODULE_NAME>`. `touch src/<MODULE_NAME>/__init__.py`
 
 3. Add name and email under author in `pyproject.toml`.
 
 3. Set up PyPI repo with the <MODULE_NAME>. Set up publisher as the github repo that you created in step 1. # TODO: Add a link to a good set of instructions.
 
-4. Update the readme.
+4. Update the readme: Delete the top part, Introduction and Usage, and replace with your content.
 
 ```
 --- WHEN UPDATING README.md: YOU CAN KEEP EVERYTHING BELOW THIS LINE ---
