@@ -31,12 +31,12 @@ It also has `.vscode/tasks.json` prepared so that developers can run tests (even
 # 🛠️ Development
 
 The only requirement is 🐳 Docker.
+(The `.devcontainer` and `tasks.json` are prepared assuming a *nix system, but if you know the commands, this will work on Windows, too.)
 
 1. Clone the repo.
 2. Branch out.
-3. Either open in "devcontainer" on VS Code, or run the following command for unit tests:
+3. Open in "devcontainer" on VS Code and start developing. Run `pytest` under `tests` to test.
+4. Akternatively, if you are a fan of Test-Driven Development like me, you can run the tests without getting on a container. `.vscode/tasks.json` has the command to do so, but it's also listed here:
 ```
 docker compose -f tests/docker-compose.yaml up --build --abort-on-container-exit --exit-code-from test
 ```
-
-4. When satisfied, push and open a PR. The pipeline will publish automatically when your PR is merged.
