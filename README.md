@@ -1,14 +1,23 @@
 # Introduction
 
-This repo is a template for writing PyPI modules.
-It comes with a complete CI/CD pipeline with
-automated unit testing,
-linting,
-and semver-compatible versioning.
+# ✨ Introduction
 
-It also includes a .devcontainer to facilitate collaboration without needing any dependencies other than VS Code and Docker.
+This repository serves as a polished, production-ready template for creating PyPI modules.
 
-It also has `.vscode/tasks.json` prepared so that developers can run tests (even without installing any dependencies.)
+It includes:
+
+- 🧪 **Automated Unit Testing** — Comprehensive test execution via CI.
+- 🧹 **Linting & Code Quality** — Ensures clean, consistent standards.
+- 🔢 **SemVer-Compatible Versioning** — Predictable, automated release management.
+
+Additional features:
+
+- 🛠️ **.devcontainer Environment** — Enables seamless collaboration with zero local setup beyond VS Code and Docker.
+- ▶️ **Ready-Made VS Code Tasks** (`.vscode/tasks.json`) — Developers can run tests instantly, even without installing dependencies.
+
+# Examples
+(https://github.com/sinan-ozel/pytest-repeated)[https://github.com/sinan-ozel/pytest-repeated]
+(https://github.com/sinan-ozel/redis-memory)[https://github.com/sinan-ozel/redis-memory]
 
 # Usage
 
