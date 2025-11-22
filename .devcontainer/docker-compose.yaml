@@ -4,7 +4,7 @@ services:
     build:
       context: ..
       dockerfile: .devcontainer/Dockerfile
-    image: redis-memory-dev
+    image: <MODULE_NAME>-dev
     volumes:
       - ..:/workspace
       - /var/run/docker.sock:/var/run/docker.sock
