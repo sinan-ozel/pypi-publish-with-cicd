@@ -1,3 +1,8 @@
+![Tests & Lint](https://github.com/<ORGANIZATION>/<MODULE_NAME>/actions/workflows/ci.yaml/badge.svg?branch=main)
+![PyPI](https://img.shields.io/pypi/v/<MODULE_NAME>.svg)
+![PyPI downloads](https://img.shields.io/pypi/dt/<MODULE_NAME>.svg?label=downloads&logo=pypi)
+![License](https://img.shields.io/github/license/sinan-ozel/pypi-publish-with-cicd.svg)
+
 # Introduction
 
 # ✨ Introduction
@@ -29,9 +34,22 @@ Additional features:
 
 3. Add name and email under author in `pyproject.toml`.
 
-3. Set up PyPI repo with the <MODULE_NAME>. Set up publisher as the github repo that you created in step 1. # TODO: Add a link to a good set of instructions.
+3. Set up PyPI repo with the <MODULE_NAME>. Set up publisher as the github repo that you created in step 1. (See below for more details.) # TODO: Add a link to a good set of instructions.
 
 4. Update the readme: Delete the top part, Introduction and Usage, and replace with your content.
+
+## PyPI Setup
+
+1. Go to your account page.
+2. Scroll down. Stay on the GitHub tab.
+3. Enter the <MODULE_NAME> from the repo as ``PyPI Project Name''. (Actually, you can have a different name, but few do that.)
+4. Enter the <ORGANIZATION> from the repo as ``Organization Name''.
+5. Enter the <MODULE_NAME> from the repo as ``Repository Name''. (Actually, you can have a different name, but few do that.)
+6. Workflow name is `ci.yaml` - it's the file in the `.github/workflows/` folder. Just enter the filename, not the full path.
+7. You do not need to enter anything in the environment, keep the default.
+
+This is it. Pro Tip: Make sure that the PyPI project name is available before creating the repo.
+
 
 ```
 --- WHEN UPDATING README.md: YOU CAN KEEP EVERYTHING BELOW THIS LINE ---
