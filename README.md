@@ -40,7 +40,7 @@ Additional features:
 
 ## PyPI Setup
 
-1. Go to your account page.
+1. Clock on your username on PyPI to get a scroll-down menu, then go to "Your Projects" -> "Publishing".
 2. Scroll down. Stay on the GitHub tab.
 3. Enter the <MODULE_NAME> from the repo as ``PyPI Project Name''. (Actually, you can have a different name, but few do that.)
 4. Enter the <ORGANIZATION> from the repo as ``Organization Name''.
