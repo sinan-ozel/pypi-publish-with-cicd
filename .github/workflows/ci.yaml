@@ -36,7 +36,18 @@ jobs:
 
       - name: Run docformatter
         run: |
-          docformatter --in-place --recursive --wrap-summaries 72 --wrap-descriptions 72 src/
+          docformatter \
+            --check \
+            --recursive \
+            --wrap-summaries 72 \
+            --wrap-descriptions 72 \
+            src/
+          docformatter \
+            --in-place \
+            --recursive \
+            --wrap-summaries 72 \
+            --wrap-descriptions 72 \
+            src/
 
       - name: Run isort
         run: |
@@ -150,6 +161,8 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Setup Python 3.10
         uses: actions/setup-python@v2
@@ -194,27 +207,30 @@ jobs:
           fi
 
           TAG_COUNT=$(git tag | wc -l)
+          echo "TAG_COUNT=$TAG_COUNT"
           if [[ "v$CURRENT_VERSION" != "$LAST_TAG" || "$TAG_COUNT" -eq 0 ]]; then
+            echo "Current version (v$CURRENT_VERSION) is greater than last tag ($LAST_TAG) or no tags exist: stable release."
             echo "VERSION=$CURRENT_VERSION" >> $GITHUB_ENV
-            echo "is_stable=true" >> $GITHUB_ENV
+            echo "is_stable=true" >> $GITHUB_OUTPUT
           else
             # Increment minor version for dev version
+            echo "Current version equals last tag, setting development version."
             MAJOR=$(echo "$CURRENT_VERSION" | cut -d. -f1)
             MINOR=$(echo "$CURRENT_VERSION" | cut -d. -f2)
             PATCH=$(echo "$CURRENT_VERSION" | cut -d. -f3)
             NEXT_MINOR=$((MINOR + 1))
             DEV_VERSION="${MAJOR}.${NEXT_MINOR}.0.dev$(date +%Y%m%d%H%M)"
             echo "VERSION=$DEV_VERSION" >> $GITHUB_ENV
-            echo "is_stable=false" >> $GITHUB_ENV
+            echo "is_stable=false" >> $GITHUB_OUTPUT
           fi
 
       - name: Inject Version Into __init__.py
-        if: env.is_stable == 'false'
+        if: steps.set-version.outputs.is_stable == 'false'
         run: |
           sed -i "s/^__version__ = .*/__version__ = \"$VERSION\"/" src/$MODULE_NAME/__init__.py
           cat src/$MODULE_NAME/__init__.py | grep "__version__"  # Debugging check
 
-      - name: Install dependencies
+      - name: Install dependencies to build package
         run: |
           python -m pip install --upgrade pip
           pip install build twine
@@ -226,7 +242,7 @@ jobs:
         uses: pypa/gh-action-pypi-publish@release/v1
 
       - name: Tag Stable Release
-        if: env.is_stable == 'true'
+        if: steps.set-version.outputs.is_stable == 'true'
         run: |
             git tag "v${VERSION}"
             git push origin "v${VERSION}"
