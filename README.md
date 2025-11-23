@@ -1,6 +1,6 @@
 ![Tests & Lint](https://github.com/<ORGANIZATION>/<MODULE_NAME>/actions/workflows/ci.yaml/badge.svg?branch=main)
 ![PyPI](https://img.shields.io/pypi/v/<MODULE_NAME>.svg)
-![PyPI downloads](https://img.shields.io/pypi/dt/<MODULE_NAME>.svg?label=downloads&logo=pypi)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/<MODULE_NAME>)
 ![License](https://img.shields.io/github/license/sinan-ozel/pypi-publish-with-cicd.svg)
 
 # Introduction
