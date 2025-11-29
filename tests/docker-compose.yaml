@@ -6,6 +6,5 @@ services:
       dockerfile: tests/Dockerfile
     image: <MODULE_NAME>-test:latest
     command: pytest
-    volumes:
-      - ../tests:/app/tests
+    working_dir: /app
 
