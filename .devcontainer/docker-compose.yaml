@@ -4,11 +4,8 @@ services:
     build:
       context: ..
       dockerfile: .devcontainer/Dockerfile
-    image: <MODULE_NAME>-dev
     volumes:
       - ..:/workspace
-      - /var/run/docker.sock:/var/run/docker.sock
     environment:
       - PYTHONPATH=/workspace/src
     command: ["tail", "-f", "/dev/null"]
-    privileged: true
