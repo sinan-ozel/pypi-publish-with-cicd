@@ -1,7 +1,8 @@
 ![Tests & Lint](https://github.com/<ORGANIZATION>/<MODULE_NAME>/actions/workflows/ci.yaml/badge.svg?branch=main)
 ![PyPI](https://img.shields.io/pypi/v/<MODULE_NAME>.svg)
 ![Downloads](https://static.pepy.tech/badge/<MODULE_NAME>)
-![Monthly Downloads](https://static.pepy.tech/badge/<MODULE_NAME>/month)![License](https://img.shields.io/github/license/sinan-ozel/pypi-publish-with-cicd.svg)
+![Monthly Downloads](https://static.pepy.tech/badge/<MODULE_NAME>/month)
+![License](https://img.shields.io/github/license/sinan-ozel/pypi-publish-with-cicd.svg)
 
 # Introduction
 
