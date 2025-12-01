@@ -1,7 +1,7 @@
 ![Tests & Lint](https://github.com/<ORGANIZATION>/<MODULE_NAME>/actions/workflows/ci.yaml/badge.svg?branch=main)
 ![PyPI](https://img.shields.io/pypi/v/<MODULE_NAME>.svg)
-![PyPI - Downloads](https://img.shields.io/pypi/dm/<MODULE_NAME>)
-![License](https://img.shields.io/github/license/sinan-ozel/pypi-publish-with-cicd.svg)
+![Downloads](https://static.pepy.tech/badge/<MODULE_NAME>)
+![Monthly Downloads](https://static.pepy.tech/badge/<MODULE_NAME>/month)![License](https://img.shields.io/github/license/sinan-ozel/pypi-publish-with-cicd.svg)
 
 # Introduction
 
@@ -28,7 +28,8 @@ Additional features:
 
 1. Base a repo on this template.
 
-2. Find all instances of <MODULE_NAME> and <ORGANIZATION> in muiiltiple files and replace with your module. (Take care with `_` and `-`, use `-` in docker-compose.yaml, `_` in `pyproject.toml`)
+2. Find all instances of <MODULE_NAME> and <ORGANIZATION> in muiiltiple files and replace with your module. (Take care with `_` and `-`, use `-` in docker-compose.yaml, `_` in `pyproject.toml`, and in the shields.
+Python requires module names to use `_`, but the URLs tend to use `-`.
 
 3. Create the folders `src/` and `src/<MODULE_NAME>`. `touch src/<MODULE_NAME>/__init__.py`
 
