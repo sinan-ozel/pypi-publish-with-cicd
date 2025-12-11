@@ -29,7 +29,7 @@ Additional features:
 
 1. Base a repo on this template.
 
-2. Find all instances of <MODULE_NAME> and <ORGANIZATION> in muiiltiple files and replace with your module. (Take care with `_` and `-`, use `-` in docker-compose.yaml, `_` in `pyproject.toml`, and in the shields.
+2. Find all instances of <MODULE_NAME>, <MODULE-NAME> and <ORGANIZATION> in muiiltiple files and replace with your module. (Take care with `_` and `-`, use `-` in docker-compose.yaml, `_` in `pyproject.toml`, and in the shields.
 Python requires module names to use `_`, but the URLs tend to use `-`.
 
 3. Create the folders `src/` and `src/<MODULE_NAME>`. `touch src/<MODULE_NAME>/__init__.py`

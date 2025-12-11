@@ -33,9 +33,9 @@ jobs:
           pip install --upgrade pip
           pip install .[dev]
 
-      - name: Run YAPF
+      - name: Run Black
         run: |
-          yapf --style=pyproject.toml -r -i .
+          black .
 
       - name: Run docformatter
         run: |
@@ -160,14 +160,62 @@ jobs:
             echo "changed=false" >> $GITHUB_OUTPUT
           fi
 
+  validate_docs:
+    name: Validate Documentation
+    runs-on: ubuntu-latest
+    outputs:
+      docs_exist: ${{ steps.validate.outputs.exists }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Validate documentation
+        id: validate
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -f "mkdocs.yml" ] && [ -d "docs" ]; then
+            echo "Documentation files found, validating..."
+
+            # Check if GitHub Pages is enabled
+            echo "Checking if GitHub Pages is enabled..."
+            if gh api repos/${{ github.repository }}/pages --silent 2>/dev/null; then
+              echo "GitHub Pages is enabled"
+            else
+              echo "::error::GitHub Pages is not enabled for this repository."
+              echo "::error::Enable it at: https://github.com/${{ github.repository }}/settings/pages"
+              exit 1
+            fi
+
+            # Build documentation
+            pip install .[docs]
+            if mkdocs build --strict; then
+              echo "Documentation built successfully"
+              echo "exists=true" >> $GITHUB_OUTPUT
+            else
+              echo "Documentation build failed!"
+              exit 1
+            fi
+          else
+            echo "Documentation files not found, skipping validation"
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
+
   publish:
     name: Publish to PyPI
     runs-on: ubuntu-latest
     permissions:
       id-token: write
       contents: write
-    needs: [test, lint, detect_changes]
+    needs: [test, lint, detect_changes, validate_docs]
     if: needs.detect_changes.outputs.changed == 'true' && github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.event.pull_request.merged == true)  # Only run on push to main or merge to main
+    outputs:
+      is_stable: ${{ steps.set-version.outputs.is_stable }}
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
@@ -251,8 +299,48 @@ jobs:
       - name: Publish to PyPI via Trusted Publisher
         uses: pypa/gh-action-pypi-publish@release/v1
 
+      # TODO: Refactor this tagging step into its own job.
       - name: Tag Stable Release
         if: steps.set-version.outputs.is_stable == 'true'
         run: |
             git tag "v${VERSION}"
             git push origin "v${VERSION}"
+
+  deploy_docs:
+    name: Deploy Documentation
+    runs-on: ubuntu-latest
+    needs: [publish, validate_docs]
+    if: github.ref == 'refs/heads/main' && needs.publish.result == 'success' && needs.publish.outputs.is_stable == 'true' && needs.validate_docs.outputs.docs_exist == 'true'
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: "pages"
+      cancel-in-progress: false
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install .[docs]
+
+      - name: Build documentation
+        run: mkdocs build --strict
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
