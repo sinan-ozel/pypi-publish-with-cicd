@@ -34,6 +34,8 @@ Python requires module names to use `_`, but the URLs tend to use `-`.
 
 3. Create the folders `src/` and `src/<MODULE_NAME>`. `touch src/<MODULE_NAME>/__init__.py`
 
+3. In `__init__.py`, write `__version__ = "0.1.0"`. This repo uses semantic versioning.
+
 3. Add name and email under author in `pyproject.toml`.
 
 3. Set up PyPI repo with the <MODULE_NAME>. Set up publisher as the github repo that you created in step 1. (See below for more details.) # TODO: Add a link to a good set of instructions.

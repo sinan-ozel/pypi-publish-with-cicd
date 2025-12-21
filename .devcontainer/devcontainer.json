@@ -30,6 +30,9 @@
         "ms-python.python",
         "ms-python.vscode-pylance",
         "ms-toolsai.jupyter",
+        "clemenspeters.format-json",
+        "euskadi31.json-pretty-printer",
+        "jgalianoz.qr-generator",
         "stkb.rewrap"
       ]
     }
