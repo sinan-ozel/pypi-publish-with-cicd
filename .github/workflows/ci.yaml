@@ -65,9 +65,9 @@ jobs:
           pip install --upgrade pip
           pip install .[dev]
 
-      - name: Run Ruff
+      - name: Lint
         run: |
-          ruff check ./src
+          docker compose -f lint/docker-compose.yml up --build --abort-on-container-exit
 
   test:
     name: Test
@@ -182,8 +182,8 @@ jobs:
     permissions:
       id-token: write
       contents: write
-    needs: [test, lint, detect_changes, validate_docs]
-    if: needs.detect_changes.outputs.changed == 'true' && github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.event.pull_request.merged == true)  # Only run on push to main or merge to main
+    needs: [test, lint, detect-changes, validate-docs]
+    if: needs.detect-changes.outputs.changed == 'true' && github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.event.pull_request.merged == true)  # Only run on push to main or merge to main
     outputs:
       is_stable: ${{ steps.set-version.outputs.is_stable }}
     steps:
