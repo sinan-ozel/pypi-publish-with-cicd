@@ -16,7 +16,7 @@ docformatter \
   --recursive \
   --wrap-summaries 72 \
   --wrap-descriptions 72 \
-  src/
+  src/ || true
 
 echo ""
 echo "=========================================="
