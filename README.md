@@ -41,6 +41,8 @@ Python requires module names to use `_`, but the URLs tend to use `-`.
 
 3. Set up PyPI repo with the <MODULE_NAME>. Set up publisher as the github repo that you created in step 1. (See below for more details.) # TODO: Add a link to a good set of instructions.
 
+4. Set up GitHub Pages: Settings -> Pages -> Deploy from a branch: `gh-pages`, `/` (root)
+
 4. Update the readme: Delete the top part, Introduction and Usage, and replace with your content.
 
 ## PyPI Setup
