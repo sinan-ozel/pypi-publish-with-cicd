@@ -6,5 +6,5 @@ services:
     image: <MODULE-NAME>-docs-validate:latest
     working_dir: /workspace
     volumes:
-      - ../:/workspace
+      - ${HOST_PROJECT_PATH:-..}:/workspace
     command: mkdocs build --strict
