@@ -23,6 +23,7 @@ Additional features:
 - ▶️ **Ready-Made VS Code Tasks** (`.vscode/tasks.json`) — Developers can run tests instantly, even without installing dependencies.
 
 # Examples
+(https://github.com/sinan-ozel/pytest-openapi)[https://github.com/sinan-ozel/pytest-openapi]
 (https://github.com/sinan-ozel/pytest-repeated)[https://github.com/sinan-ozel/pytest-repeated]
 (https://github.com/sinan-ozel/redis-memory)[https://github.com/sinan-ozel/redis-memory]
 
