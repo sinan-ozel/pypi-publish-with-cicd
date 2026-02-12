@@ -3,7 +3,7 @@ requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "<MODULE_NAME>"
+name = "<MODULE-NAME>"
 dynamic = ["version"]
 description = ""
 readme = "README.md"
