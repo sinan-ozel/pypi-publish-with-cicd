@@ -4,6 +4,7 @@ WORKDIR /workspace
 
 # Copy pyproject.toml for dependency installation
 COPY pyproject.toml /workspace/pyproject.toml
+COPY src/ /workspace/src/
 
 # Install dev dependencies
 RUN pip install --no-cache-dir -e ".[dev]"

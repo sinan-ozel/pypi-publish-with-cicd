@@ -13,4 +13,4 @@ RUN pip install --upgrade pip && \
     rm -rf /tmp/*
 
 # Files will be mounted at /workspace
-CMD ["./lint/lint_and_format.sh"]
+CMD ["./lint/lint.sh"]
