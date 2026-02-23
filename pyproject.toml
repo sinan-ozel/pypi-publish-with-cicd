@@ -34,6 +34,7 @@ dev = [
     "ruff>=0.12.11",          # For linting
     "black>=24.0.0",          # For code formatting (Black)
     "docformatter>=1.7.5",    # For formatting docstrings
+    "mike",
 ]
 
 docs = [

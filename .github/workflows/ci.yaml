@@ -25,7 +25,7 @@ jobs:
 
       - name: Run Reformat with Docker Compose
         run: |
-          docker compose -f reformat/docker-compose.yml up --build --abort-on-container-exit
+          docker compose -f reformat/docker-compose.yaml up --build --abort-on-container-exit
 
       - name: Commit changes
         if: github.ref != 'refs/heads/main'
@@ -65,7 +65,7 @@ jobs:
 
       - name: Lint
         run: |
-          docker compose -f lint/docker-compose.yml up --build --abort-on-container-exit
+          docker compose -f lint/docker-compose.yaml up --build --abort-on-container-exit
 
   test:
     name: Test
