@@ -20,9 +20,9 @@ docformatter \
 
 echo ""
 echo "=========================================="
-echo "Running isort (import sorter)..."
+echo "Running ruff --select I (import sorter)..."
 echo "=========================================="
-isort src/
+ruff check src/ --fix --select I
 
 echo ""
 echo "=========================================="
