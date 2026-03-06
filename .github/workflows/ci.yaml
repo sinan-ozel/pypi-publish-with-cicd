@@ -314,6 +314,7 @@ jobs:
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
+          version: ${{ steps.set-version.outputs.version }}
 
       - name: Install dependencies
         run: pip install .[docs]
@@ -330,3 +331,4 @@ jobs:
           git fetch origin gh-pages --depth=1 || true
           mike deploy --push --update-aliases ${{ steps.get_version.outputs.VERSION }} latest
           mike set-default --push latest
+
