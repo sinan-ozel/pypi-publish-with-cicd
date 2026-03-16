@@ -13,9 +13,9 @@ pip install .[dev]
 
 echo ""
 echo "=========================================="
-echo "Running isort on $d..."
+echo "Running isort"
 echo "=========================================="
-isort "$d"
+isort ./src
 
 echo ""
 echo "=========================================="
