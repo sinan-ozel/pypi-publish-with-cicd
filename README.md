@@ -22,7 +22,7 @@ Additional features:
 - 🛠️ **.devcontainer Environment** — Enables seamless collaboration with zero local setup beyond VS Code and Docker.
 - ▶️ **Ready-Made VS Code Tasks** (`.vscode/tasks.json`) — Developers can run tests instantly, even without installing dependencies.
 
-✨ This is a live, maintained repo, as of April 2026. I actively used it for my projects below, and it evolved as I added more features to it.
+✨ This is a **live, maintained and tested repo**, as of April 2026. I actively used it for my projects below, and it evolved as I added more features to it.
 It may have reached a level of maturity where I will continue to use it as it is, but we will see. Either way, it is not just a tutorial
 project, the pipelines and everything in the repo is tested.
 
