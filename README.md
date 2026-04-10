@@ -28,8 +28,11 @@ project, the pipelines and everything in the repo is tested.
 
 # Examples
 [https://github.com/sinan-ozel/pytest-mcp-tools](https://github.com/sinan-ozel/pytest-mcp-tools)
+
 [https://github.com/sinan-ozel/pytest-openapi](https://github.com/sinan-ozel/pytest-openapi)
+
 [https://github.com/sinan-ozel/pytest-repeated](https://github.com/sinan-ozel/pytest-repeated)
+
 [https://github.com/sinan-ozel/redis-memory](https://github.com/sinan-ozel/redis-memory)
 
 # Usage
