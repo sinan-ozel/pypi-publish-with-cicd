@@ -42,7 +42,7 @@
     {
       "label": "reformat",
       "type": "shell",
-      "command": "docker compose -f reformat/docker-compose.yml up --build --abort-on-container-exit",
+      "command": "docker compose -f reformat/docker-compose.yaml up --build --abort-on-container-exit",
       "problemMatcher": [],
       "presentation": {
         "echo": true,
@@ -55,24 +55,6 @@
       "group": {
         "kind": "build",
         "isDefault": false
-      }
-    },
-    {
-      "label": "validate-docs",
-      "type": "shell",
-      "command": "mkdocs",
-      "args": [
-        "build",
-        "--strict"
-      ],
-      "problemMatcher": [],
-      "group": {
-        "kind": "build",
-        "isDefault": false
-      },
-      "presentation": {
-        "reveal": "always",
-        "panel": "new"
       }
     },
     {
