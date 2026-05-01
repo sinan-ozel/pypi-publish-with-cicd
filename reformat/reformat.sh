@@ -11,13 +11,13 @@ echo ""
 echo "=========================================="
 echo "Running docformatter (docstring formatter)..."
 echo "=========================================="
-docformatter src/
+docformatter --in-place -r src/
 
 echo ""
 echo "=========================================="
-echo "Running ruff --select I (import sorter)..."
+echo "Running ruff (import sorter / linter)..."
 echo "=========================================="
-ruff check src/
+ruff check --fix src/
 
 echo ""
 echo "=========================================="

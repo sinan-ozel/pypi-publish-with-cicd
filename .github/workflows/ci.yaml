@@ -296,11 +296,6 @@ jobs:
       cancel-in-progress: false
     permissions:
       contents: write
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -314,7 +309,6 @@ jobs:
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          version: ${{ steps.set-version.outputs.version }}
 
       - name: Install dependencies
         run: pip install .[docs]
